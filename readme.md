@@ -1,5 +1,5 @@
 #Spark动态资源调度方案
-背景：    
+   背景：    
 发现yarn_streamsql集群运行的都是一些sql，有时出现oom资源不够、并行度不够的情形，而用户又不知道具体的设置方法，所以用此方法，让spark动态资源调整，解决此问题。
 
 步骤：    
@@ -7,7 +7,7 @@
 （可以copy到在集群的每个NodeManager上，但是建议copy到所有节点）
 
 ####2、修改YARN NodeManger配置yarn-site.xml，并copy至各个节点       
-'''
+```
 <property>
     <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle,spark_shuffle</value>
@@ -20,8 +20,7 @@
     <name>spark.shuffle.service.port</name>
     <value>7337</value>
 </property>    
-'''
-    
+```
     
 *备注：*
 
