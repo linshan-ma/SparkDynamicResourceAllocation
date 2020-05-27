@@ -3,7 +3,7 @@
 发现yarn_streamsql集群运行的都是一些sql，有时出现oom资源不够、并行度不够的情形，而用户又不知道具体的设置方法，所以用此方法，让spark动态资源调整，解决此问题。
 
 步骤：    
-1、将spark目录下的spark-<version>-yarn-shuffle.jar（$SPARK_HOME/yarn/spark-2.1.0-yarn-shuffle.jar）copy到hadoop集群的所有节点中，如：$HADOOP_HOME/yarn/lib/
+####1、将spark目录下的spark-<version>-yarn-shuffle.jar（$SPARK_HOME/yarn/spark-2.1.0-yarn-shuffle.jar）copy到hadoop集群的所有节点中，如：$HADOOP_HOME/yarn/lib/
 （可以copy到在集群的每个NodeManager上，但是建议copy到所有节点）
 
 ####2、修改YARN NodeManger配置yarn-site.xml，并copy至各个节点       
