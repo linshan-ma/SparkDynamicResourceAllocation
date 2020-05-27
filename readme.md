@@ -7,7 +7,7 @@
 （可以copy到在集群的每个NodeManager上，但是建议copy到所有节点）
 
 ####2、修改YARN NodeManger配置yarn-site.xml，并copy至各个节点       
-    
+'''
 <property>
     <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle,spark_shuffle</value>
@@ -20,7 +20,7 @@
     <name>spark.shuffle.service.port</name>
     <value>7337</value>
 </property>    
-
+'''
     
     
 *备注：*
@@ -40,7 +40,10 @@ spark.shuffle.service.port  7337   //Shuffle Service服务端口，必须和yarn
 
 spark.dynamicAllocation.enabled true  //开启动态资源分配    
 
-spark.dynamicAllocation.minExecutors 1  //每个Application最小分配的executor数
-spark.dynamicAllocation.maxExecutors 30  //每个Application最大并发分配的executor数
-spark.dynamicAllocation.schedulerBacklogTimeout 1s //这个参数的默认值是1秒，即当任务调度延迟超过1秒的时候，会请求增加executor
-spark.dynamicAllocation.sustainedSchedulerBacklogTimeout 5s //当schedulerBacklogTimeout参数检测过一次，增加了executor，第二次检测任务调度延迟超过5秒的时候（5秒为此参数设置），再次增加executor
+spark.dynamicAllocation.minExecutors 1  //每个Application最小分配的executor数   
+
+spark.dynamicAllocation.maxExecutors 30  //每个Application最大并发分配的executor数    
+
+spark.dynamicAllocation.schedulerBacklogTimeout 1s //这个参数的默认值是1秒，即当任务调度延迟超过1秒的时候，会请求增加executor   
+
+spark.dynamicAllocation.sustainedSchedulerBacklogTimeout 5s //当schedulerBacklogTimeout参数检测过一次，增加了executor，第二次检测任务调度延迟超过5秒的时候（5秒为此参数设置），再次增加executor    
